@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI News and Research - July 11, 2025</title>
+    <style>
+        :root {
+            --primary-color: #3a86ff;
+            --secondary-color: #8338ec;
+            --accent-color: #ff006e;
+            --background-color: #f8f9fa;
+            --text-color: #212529;
+            --card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="2"/></svg>');
+            opacity: 0.3;
+            z-index: 0;
+        }
+
+        .header-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .date {
+            font-size: 1.2rem;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        .stats-container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+            gap: 1rem;
+        }
+
+        .stat-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-title {
+            font-size: 1rem;
+            color: #6c757d;
+        }
+
+        .articles {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .article-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--card-shadow);
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .article-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 3px solid var(--primary-color);
+        }
+
+        .article-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .article-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .article-link {
+            display: inline-block;
+            margin-top: auto;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: var(--transition);
+            text-align: center;
+        }
+
+        .article-link:hover {
+            background-color: var(--secondary-color);
+            transform: scale(1.05);
+        }
+
+        .chart-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: var(--card-shadow);
+            margin: 3rem 0;
+        }
+
+        .chart-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 1.8rem;
+            color: var(--text-color);
+        }
+
+        .chart {
+            height: 300px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            padding: 0 1rem;
+        }
+
+        .bar {
+            width: 60px;
+            background: linear-gradient(to top, var(--primary-color), var(--secondary-color));
+            border-radius: 5px 5px 0 0;
+            position: relative;
+            transition: height 1s ease-in-out;
+        }
+
+        .bar-label {
+            position: absolute;
+            bottom: -30px;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            font-size: 0.9rem;
+            color: #6c757d;
+        }
+
+        .bar-value {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--accent-color);
+            color: white;
+            padding: 0.25rem 0.5rem;
+            border-radius: 3px;
+            font-size: 0.8rem;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .bar:hover .bar-value {
+            opacity: 1;
+        }
+
+        .newsletter {
+            background: linear-gradient(135deg, var(--secondary-color), var(--accent-color));
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            margin: 3rem 0;
+            color: white;
+            text-align: center;
+        }
+
+        .newsletter h2 {
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .newsletter p {
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-input {
+            flex-grow: 1;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            font-size: 1rem;
+        }
+
+        .newsletter-button {
+            padding: 0.75rem 1.5rem;
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            border-radius: 0 5px 5px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .newsletter-button:hover {
+            background-color: #d90057;
+        }
+
+        footer {
+            background-color: #212529;
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+            margin-top: 3rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .social-link {
+            color: white;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .social-link:hover {
+            color: var(--primary-color);
+            transform: scale(1.2);
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .articles {
+                grid-template-columns: 1fr;
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+            }
+
+            .newsletter-input {
+                border-radius: 5px;
+                margin-bottom: 1rem;
+            }
+
+            .newsletter-button {
+                border-radius: 5px;
+            }
+
+            .chart {
+                height: 200px;
+            }
+
+            .bar {
+                width: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>AI News and Research</h1>
+            <div class="date">July 11, 2025</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-number">78%</div>
+                <div class="stat-title">Growth in AI Research</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">$1.2T</div>
+                <div class="stat-title">Global AI Market Value</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">42M</div>
+                <div class="stat-title">AI-Powered Devices</div>
+            </div>
+        </div>
+
+        <div class="articles">
+            <div class="article-card">
+                <img src="https://theaiinsider.tech/wp-content/uploads/2025/07/RobotGait3_heavy-leaves_Joseph-Humphreys.2025.jpeg" alt="AI Robot" class="article-image">
+                <div class="article-content">
+                    <h2 class="article-title">AI learns from animals! New AI allows four-legged robots to autonomously navigate tough terrain by switching gaits.</h2>
+                    <a href="https://theaiinsider.tech" class="article-link" target="_blank">Read More</a>
+                </div>
+            </div>
+
+            <div class="article-card">
+                <img src="https://media.springernature.com/lw1200/springer-static/image/art%3A10.1186%2Fs13058-024-01895-6/MediaObjects/13058_2024_1895_Fig2_HTML.png" alt="CellLENS" class="article-image">
+                <div class="article-content">
+                    <h2 class="article-title">CellLENS revolutionizes precision medicine! Deep learning AI creates detailed cell profiles to identify rare immune cells, potentially boosting cancer diagnostics.</h2>
+                    <a href="https://mit.edu" class="article-link" target="_blank">Read More</a>
+                </div>
+            </div>
+
+            <div class="article-card">
+                <img src="http://cdn.statcdn.com/Infographic/images/normal/34295.jpeg" alt="AI Energy Consumption" class="article-image">
+                <div class="article-content">
+                    <h2 class="article-title">AI's energy demands are soaring! The rise of AI is putting a strain on the electric grid, raising concerns about energy consumption.</h2>
+                    <a href="https://www.foxbusiness.com/technology/growing-popularity-ai-increasing-demand-energy-stressing-nations-electric-grid" class="article-link" target="_blank">Read More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="chart-container">
+            <h2 class="chart-title">AI Energy Consumption Growth (TWh)</h2>
+            <div class="chart" id="energy-chart">
+                <div class="bar" style="height: 50px;">
+                    <div class="bar-value">10</div>
+                    <div class="bar-label">2020</div>
+                </div>
+                <div class="bar" style="height: 100px;">
+                    <div class="bar-value">20</div>
+                    <div class="bar-label">2021</div>
+                </div>
+                <div class="bar" style="height: 150px;">
+                    <div class="bar-value">30</div>
+                    <div class="bar-label">2022</div>
+                </div>
+                <div class="bar" style="height: 200px;">
+                    <div class="bar-value">40</div>
+                    <div class="bar-label">2023</div>
+                </div>
+                <div class="bar" style="height: 250px;">
+                    <div class="bar-value">50</div>
+                    <div class="bar-label">2024</div>
+                </div>
+                <div class="bar" style="height: 0px;">
+                    <div class="bar-value">75</div>
+                    <div class="bar-label">2025</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="newsletter">
+            <h2>Stay Updated with AI News</h2>
+            <p>Subscribe to our newsletter to receive the latest news and research in artificial intelligence directly to your inbox.</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Enter your email" class="newsletter-input" required>
+                <button type="submit" class="newsletter-button">Subscribe</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2025 AI News and Research. All rights reserved.</p>
+        <div class="social-links">
+            <a href="#" class="social-link">📱</a>
+            <a href="#" class="social-link">💻</a>
+            <a href="#" class="social-link">📧</a>
+            <a href="#" class="social-link">🔗</a>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Animate chart bars on load
+            setTimeout(() => {
+                const bars = document.querySelectorAll('.bar');
+                bars.forEach(bar => {
+                    const originalHeight = bar.style.height;
+                    bar.style.height = '0px';
+                    setTimeout(() => {
+                        bar.style.height = originalHeight;
+                    }, 100);
+                });
+            }, 500);
+
+            // Newsletter form submission
+            const form = document.querySelector('.newsletter-form');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const input = this.querySelector('.newsletter-input');
+                if (input.value) {
+                    alert(`Thank you for subscribing with ${input.value}!`);
+                    input.value = '';
+                }
+            });
+
+            // Add current year to footer
+            const currentYear = new Date().getFullYear();
+            document.querySelector('footer p').textContent = `© ${currentYear} AI News and Research. All rights reserved.`;
+        });
+    </script>
+</body>
+</html>
